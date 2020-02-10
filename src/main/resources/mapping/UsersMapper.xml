@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.mapper.UsersMapper">
+  <select id="selAllUsers" resultType="Users">
+    select * from users
+  </select>
+  <select id="selUser"  resultType="users">
+    select * from users where userNo=#{userNo} and userPwd=#{userPwd}
+  </select>
+  <insert id="insUser" parameterType="users">
+    insert into users (userNo,userName,userPwd,userSex,userAddress) values(#{userNo},#{userName},#{userPwd},#{userSex},#{userAddress})
+  </insert>
+  <delete id="delUserByUserNo" parameterType="String">
+    delete from users where userNo=#{userNo}
+  </delete>
+</mapper>
